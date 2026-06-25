@@ -1,0 +1,8 @@
+# OS
+.DS_Store
+
+# Local tooling / editor config
+.claude/
+
+# Node
+node_modules/
