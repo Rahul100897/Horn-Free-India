@@ -25,7 +25,7 @@
   --deva:  "Noto Sans Devanagari", var(--sans);
 
   /* Rhythm */
-  --maxw: 1120px;
+  --maxw: 1240px;
   --narrow: 720px;
   --header-h: 68px;
   --radius: 14px;
@@ -176,7 +176,7 @@ section[id] { scroll-margin-top: calc(var(--header-h) + 12px); }
 }
 
 /* ---------- Ask cards ---------- */
-.ask-cards { display: grid; gap: 1rem; grid-template-columns: 1fr; margin: 2.4rem 0; }
+.ask-cards { display: grid; gap: 1rem; grid-template-columns: 1fr; margin: 2.4rem auto; max-width: 960px; }
 .ask-card {
   background: var(--paper-2); border: 1.5px solid var(--line); border-radius: var(--radius);
   padding: 2rem 1.5rem; text-align: center;
