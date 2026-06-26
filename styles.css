@@ -73,8 +73,11 @@ section[id] { scroll-margin-top: calc(var(--header-h) + 12px); }
   font-family: var(--sans); font-weight: 600; font-size: 1rem;
   text-decoration: none; cursor: pointer; border: 0;
   padding: 0.95rem 1.6rem; border-radius: 999px; min-height: 48px;
+  white-space: nowrap;
   transition: transform .15s ease, background .2s ease, box-shadow .2s ease;
 }
+/* Header CTA: full label on desktop, "Join" on mobile (collapsed nav) */
+.cta-short { display: none; }
 .btn:active { transform: translateY(1px); }
 .btn-primary { background: var(--accent); color: #fff; box-shadow: 0 6px 18px -8px var(--accent-ink); }
 .btn-primary:hover { background: var(--accent-ink); }
@@ -289,6 +292,8 @@ section[id] { scroll-margin-top: calc(var(--header-h) + 12px); }
   .nav-bars::before { position: absolute; top: -6px; }
   .nav-bars::after { position: absolute; top: 6px; }
   .header-counter { display: none; }
+  .header-cta .cta-full { display: none; }
+  .header-cta .cta-short { display: inline; }
 }
 
 @media (max-width: 420px) {
