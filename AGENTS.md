@@ -21,10 +21,10 @@
 - Run `scripts/validate-theme.sh` after theme changes.
 - Run `scripts/package-theme.sh` when an installable ZIP is requested.
 - Verify the ZIP contains a single top-level `horn-free-theme/` directory.
-- Test supporter submission, one-time email-action counting, Gmail/Outlook/default-app/copy options, country selection, and mobile navigation on staging before production deployment.
+- Test supporter submission, one-time email-action counting, Gmail/Outlook/default-app/copy options, country selection, and mobile navigation before approving a production deployment.
 
 ## Git workflow
 
 - Keep generated archives in `dist/`; they are intentionally ignored by Git.
 - Use focused commits and do not rewrite shared history.
-- Production deployment must come from a reviewed commit and should target staging first.
+- Production deployment must come from a reviewed commit and requires explicit approval.
