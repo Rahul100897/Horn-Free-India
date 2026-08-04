@@ -1,0 +1,42 @@
+name: WordPress theme CI
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "Wordpress/horn-free-theme/**"
+      - "scripts/**"
+      - ".github/workflows/theme-ci.yml"
+  pull_request:
+    paths:
+      - "Wordpress/horn-free-theme/**"
+      - "scripts/**"
+      - ".github/workflows/theme-ci.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate-and-package:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: "7.4"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Install ripgrep
+        run: sudo apt-get update && sudo apt-get install -y ripgrep
+      - name: Validate theme
+        run: sh scripts/validate-theme.sh
+      - name: Build installable ZIP
+        run: sh scripts/package-theme.sh
+      - name: Upload theme artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: horn-free-theme
+          path: dist/*.zip
+          if-no-files-found: error

@@ -1,0 +1,51 @@
+name: Deploy WordPress theme
+
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: "Deployment environment"
+        required: true
+        default: staging
+        type: choice
+        options: [staging, production]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: horn-free-theme-${{ inputs.environment }}
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment: ${{ inputs.environment }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Configure SSH
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.WP_SSH_PRIVATE_KEY }}
+          SSH_KNOWN_HOSTS: ${{ secrets.WP_SSH_KNOWN_HOSTS }}
+        run: |
+          install -m 700 -d ~/.ssh
+          printf '%s\n' "$SSH_PRIVATE_KEY" > ~/.ssh/id_ed25519
+          chmod 600 ~/.ssh/id_ed25519
+          printf '%s\n' "$SSH_KNOWN_HOSTS" > ~/.ssh/known_hosts
+          chmod 600 ~/.ssh/known_hosts
+      - name: Deploy theme files
+        env:
+          SSH_HOST: ${{ secrets.WP_SSH_HOST }}
+          SSH_USER: ${{ secrets.WP_SSH_USER }}
+          WP_THEME_PATH: ${{ secrets.WP_THEME_PATH }}
+        run: |
+          case "$WP_THEME_PATH" in
+            */wp-content/themes/horn-free-theme) ;;
+            *) echo "WP_THEME_PATH must end with /wp-content/themes/horn-free-theme" >&2; exit 1 ;;
+          esac
+          rsync -az --delete \
+            --exclude='.DS_Store' \
+            --exclude='node_modules/' \
+            --exclude='vendor/' \
+            Wordpress/horn-free-theme/ \
+            "$SSH_USER@$SSH_HOST:$WP_THEME_PATH/"

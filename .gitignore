@@ -6,3 +6,13 @@
 
 # Node
 node_modules/
+
+# Generated theme packages and local WordPress state
+dist/
+*.log
+.env
+.env.*
+!.env.example
+wp-config.php
+Wordpress/horn-free-theme/vendor/
+Wordpress/horn-free-theme/node_modules/

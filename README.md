@@ -12,8 +12,9 @@ cities, and a calmer India.
 
 ## What this is
 
-A modern, mobile-first, single-page redesign of the Horn Free India homepage. Built as a
-plain static site — no framework, no build step — so it can be hosted free anywhere.
+A modern, mobile-first campaign site with both the original static prototype and a production-ready WordPress theme.
+
+The WordPress theme lives in [`Wordpress/horn-free-theme`](Wordpress/horn-free-theme). It uses ACF for homepage content, stores supporter submissions privately in WordPress, counts unique email actions, and supports Gmail, Outlook, default-mail-app, and copy-message sending options.
 
 The page is structured as a narrative argument:
 
@@ -44,6 +45,15 @@ node server.js
 
 (Or open `index.html` directly in a browser.)
 
+## WordPress theme development
+
+```bash
+sh scripts/validate-theme.sh
+sh scripts/package-theme.sh
+```
+
+The package command creates an installable ZIP in `dist/`. GitHub Actions also validates and packages the theme automatically. See [`docs/CODEX-WORDPRESS-SETUP.md`](docs/CODEX-WORDPRESS-SETUP.md) for Codex, CI, and deployment setup.
+
 ## Before going live — things to edit
 
 The copy intentionally contains `[placeholders]` to fill in:
@@ -53,13 +63,9 @@ The copy intentionally contains `[placeholders]` to fill in:
 - **Citation sources** next to the two statistics (CPCB, MoRTH)
 - **Social links** in the footer
 
-## Important: the counter is front-end only
+## WordPress supporter workflow
 
-Right now, submitting the form personalizes the Ministry email and increments the counter
-*on the visitor's own screen* — nothing is saved to a server. To make the count **real and
-verifiable** (and to build a contactable supporter list), wire the form `submit` handler in
-`main.js` to a backend or form service (Google Form/Sheet, Airtable, Formspark, etc.). Look
-for the `// NOTE:` comment marking the exact spot.
+The WordPress implementation stores supporter details in the private `hfi_supporter` post type. A supporter is counted once after choosing an email action. WordPress does not send the Ministry email; it opens the visitor's Gmail, Outlook, default email app, or provides a copyable message.
 
 ## License
 

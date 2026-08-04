@@ -1,0 +1,1110 @@
+[
+  {
+    "key": "group_hfi_homepage",
+    "title": "Horn Free India — Homepage",
+    "fields": [
+      {
+        "key": "field_hfi_tab_hero",
+        "label": "Hero",
+        "name": "",
+        "type": "tab",
+        "placement": "top",
+        "endpoint": 0
+      },
+      {
+        "key": "field_hfi_hero_eyebrow",
+        "label": "Eyebrow",
+        "name": "hero_eyebrow",
+        "type": "text",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "default_value": "A citizen movement for a quieter India",
+        "placeholder": "",
+        "prepend": "",
+        "append": "",
+        "maxlength": ""
+      },
+      {
+        "key": "field_hfi_hero_title",
+        "label": "Title",
+        "name": "hero_title",
+        "type": "text",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "default_value": "From <span class=\"loud\">Blow Horn</span> to <span class=\"calm\">Om Shanti</span>",
+        "placeholder": "",
+        "prepend": "",
+        "append": "",
+        "maxlength": ""
+      },
+      {
+        "key": "field_hfi_hero_text",
+        "label": "Introduction",
+        "name": "hero_text",
+        "type": "textarea",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "default_value": "India gave the world the word for peace — शांति. Yet every truck on our roads still orders us to Blow Horn. We’re here to change what our roads say, and how they sound.",
+        "new_lines": "br",
+        "rows": 4,
+        "placeholder": ""
+      },
+      {
+        "key": "field_hfi_hero_image",
+        "label": "Image",
+        "name": "hero_image",
+        "type": "image",
+        "instructions": "Optional. If empty, the bundled homepage image is displayed automatically.",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "default_value": "",
+        "return_format": "array",
+        "preview_size": "medium",
+        "library": "all",
+        "min_width": "",
+        "min_height": "",
+        "min_size": "",
+        "max_width": "",
+        "max_height": "",
+        "max_size": "",
+        "mime_types": ""
+      },
+      {
+        "key": "field_hfi_hero_primary_label",
+        "label": "Primary button label",
+        "name": "hero_primary_label",
+        "type": "text",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "default_value": "Join the movement",
+        "placeholder": "",
+        "prepend": "",
+        "append": "",
+        "maxlength": ""
+      },
+      {
+        "key": "field_hfi_hero_secondary_label",
+        "label": "Secondary button label",
+        "name": "hero_secondary_label",
+        "type": "text",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "default_value": "See why it matters",
+        "placeholder": "",
+        "prepend": "",
+        "append": "",
+        "maxlength": ""
+      },
+      {
+        "key": "field_hfi_hero_trust",
+        "label": "Trust line",
+        "name": "hero_trust",
+        "type": "text",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "default_value": "No donations. No politics. We will never ask you for money — only for your voice.",
+        "placeholder": "",
+        "prepend": "",
+        "append": "",
+        "maxlength": ""
+      },
+      {
+        "key": "field_hfi_tab_problem",
+        "label": "Problem",
+        "name": "",
+        "type": "tab",
+        "placement": "top",
+        "endpoint": 0
+      },
+      {
+        "key": "field_hfi_problem_title",
+        "label": "Title",
+        "name": "problem_title",
+        "type": "text",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "default_value": "Our roads are loud, and it’s costing us more than our calm.",
+        "placeholder": "",
+        "prepend": "",
+        "append": "",
+        "maxlength": ""
+      },
+      {
+        "key": "field_hfi_problem_intro",
+        "label": "Introduction",
+        "name": "problem_intro",
+        "type": "textarea",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "default_value": "Constant honking isn’t just noise. It’s a daily assault on our hearing, our nerves, and our cities — and it’s so normal we’ve stopped noticing.",
+        "new_lines": "br",
+        "rows": 4,
+        "placeholder": ""
+      },
+      {
+        "key": "field_hfi_stat_1_number",
+        "label": "Stat 1 number",
+        "name": "stat_1_number",
+        "type": "text",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "default_value": "80–120 dB",
+        "placeholder": "",
+        "prepend": "",
+        "append": "",
+        "maxlength": ""
+      },
+      {
+        "key": "field_hfi_stat_1_text",
+        "label": "Stat 1 text",
+        "name": "stat_1_text",
+        "type": "textarea",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "default_value": "A single truck horn. The safe limit for a residential street is 55 dB.",
+        "new_lines": "br",
+        "rows": 4,
+        "placeholder": ""
+      },
+      {
+        "key": "field_hfi_stat_2_number",
+        "label": "Stat 2 number",
+        "name": "stat_2_number",
+        "type": "text",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "default_value": "1.5 lakh+",
+        "placeholder": "",
+        "prepend": "",
+        "append": "",
+        "maxlength": ""
+      },
+      {
+        "key": "field_hfi_stat_2_text",
+        "label": "Stat 2 text",
+        "name": "stat_2_text",
+        "type": "textarea",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "default_value": "Lives lost on Indian roads every year. Roads this dangerous shouldn’t also be this hostile.",
+        "new_lines": "br",
+        "rows": 4,
+        "placeholder": ""
+      },
+      {
+        "key": "field_hfi_stat_3_number",
+        "label": "Stat 3 number",
+        "name": "stat_3_number",
+        "type": "text",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "default_value": "Every day",
+        "placeholder": "",
+        "prepend": "",
+        "append": "",
+        "maxlength": ""
+      },
+      {
+        "key": "field_hfi_stat_3_text",
+        "label": "Stat 3 text",
+        "name": "stat_3_text",
+        "type": "textarea",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "default_value": "Millions of trucks pass schools, hospitals and homes carrying the words Blow Horn.",
+        "new_lines": "br",
+        "rows": 4,
+        "placeholder": ""
+      },
+      {
+        "key": "field_hfi_tab_action",
+        "label": "Take Action",
+        "name": "",
+        "type": "tab",
+        "placement": "top",
+        "endpoint": 0
+      },
+      {
+        "key": "field_hfi_action_title",
+        "label": "Title",
+        "name": "action_title",
+        "type": "text",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "default_value": "Here’s the whole movement, in three minutes.",
+        "placeholder": "",
+        "prepend": "",
+        "append": "",
+        "maxlength": ""
+      },
+      {
+        "key": "field_hfi_action_intro",
+        "label": "Introduction",
+        "name": "action_intro",
+        "type": "text",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "default_value": "No marches. No money. Three steps from your phone.",
+        "placeholder": "",
+        "prepend": "",
+        "append": "",
+        "maxlength": ""
+      },
+      {
+        "key": "field_hfi_action_step_1_title",
+        "label": "Step 1 title",
+        "name": "action_step_1_title",
+        "type": "text",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "default_value": "Add your name",
+        "placeholder": "",
+        "prepend": "",
+        "append": "",
+        "maxlength": ""
+      },
+      {
+        "key": "field_hfi_action_step_1_text",
+        "label": "Step 1 text",
+        "name": "action_step_1_text",
+        "type": "textarea",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "default_value": "Tell us who you are and where you’re from. Your name joins a public count we put in front of the government.",
+        "new_lines": "br",
+        "rows": 4,
+        "placeholder": ""
+      },
+      {
+        "key": "field_hfi_action_step_2_title",
+        "label": "Step 2 title",
+        "name": "action_step_2_title",
+        "type": "text",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "default_value": "Email the Ministry",
+        "placeholder": "",
+        "prepend": "",
+        "append": "",
+        "maxlength": ""
+      },
+      {
+        "key": "field_hfi_action_step_2_text",
+        "label": "Step 2 text",
+        "name": "action_step_2_text",
+        "type": "textarea",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "default_value": "One tap fills in a respectful message to the Ministry of Road Transport & Highways.",
+        "new_lines": "br",
+        "rows": 4,
+        "placeholder": ""
+      },
+      {
+        "key": "field_hfi_action_step_3_title",
+        "label": "Step 3 title",
+        "name": "action_step_3_title",
+        "type": "text",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "default_value": "Bring three friends",
+        "placeholder": "",
+        "prepend": "",
+        "append": "",
+        "maxlength": ""
+      },
+      {
+        "key": "field_hfi_action_step_3_text",
+        "label": "Step 3 text",
+        "name": "action_step_3_text",
+        "type": "textarea",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "default_value": "Forward this to three people who would want a quieter India.",
+        "new_lines": "br",
+        "rows": 4,
+        "placeholder": ""
+      },
+      {
+        "key": "field_hfi_email_cc",
+        "label": "Email CC",
+        "name": "email_cc",
+        "type": "email",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "default_value": "shanti@hornfreeindia.org",
+        "placeholder": "",
+        "prepend": "",
+        "append": "",
+        "maxlength": ""
+      },
+      {
+        "key": "field_hfi_action_closing",
+        "label": "Closing line",
+        "name": "action_closing",
+        "type": "text",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "default_value": "That’s all. No fee, no form-filling marathon, no catch. Just your voice, counted.",
+        "placeholder": "",
+        "prepend": "",
+        "append": "",
+        "maxlength": ""
+      },
+      {
+        "key": "field_hfi_tab_ask",
+        "label": "Our Ask",
+        "name": "",
+        "type": "tab",
+        "placement": "top",
+        "endpoint": 0
+      },
+      {
+        "key": "field_hfi_ask_title",
+        "label": "Title",
+        "name": "ask_title",
+        "type": "text",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "default_value": "We’re not asking for silence. We’re asking for three words to change.",
+        "placeholder": "",
+        "prepend": "",
+        "append": "",
+        "maxlength": ""
+      },
+      {
+        "key": "field_hfi_ask_intro",
+        "label": "Introduction",
+        "name": "ask_intro",
+        "type": "textarea",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "default_value": "For decades, India’s commercial vehicles have carried signage that invites honking. Our ask is simple: replace that signage with a message that asks for the opposite.",
+        "new_lines": "br",
+        "rows": 4,
+        "placeholder": ""
+      },
+      {
+        "key": "field_hfi_ask_card_1",
+        "label": "Card 1",
+        "name": "ask_card_1",
+        "type": "text",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "default_value": "Stop Horn",
+        "placeholder": "",
+        "prepend": "",
+        "append": "",
+        "maxlength": ""
+      },
+      {
+        "key": "field_hfi_ask_card_2",
+        "label": "Card 2",
+        "name": "ask_card_2",
+        "type": "text",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "default_value": "No Horn",
+        "placeholder": "",
+        "prepend": "",
+        "append": "",
+        "maxlength": ""
+      },
+      {
+        "key": "field_hfi_ask_card_3",
+        "label": "Card 3",
+        "name": "ask_card_3",
+        "type": "text",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "default_value": "Om Shanti",
+        "placeholder": "",
+        "prepend": "",
+        "append": "",
+        "maxlength": ""
+      },
+      {
+        "key": "field_hfi_ask_card_3_note",
+        "label": "Card 3 note",
+        "name": "ask_card_3_note",
+        "type": "text",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "default_value": "peace, for the road",
+        "placeholder": "",
+        "prepend": "",
+        "append": "",
+        "maxlength": ""
+      },
+      {
+        "key": "field_hfi_ask_closing",
+        "label": "Closing line",
+        "name": "ask_closing",
+        "type": "text",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "default_value": "One change, on the back of every truck. From a command to honk — to a reminder to breathe.",
+        "placeholder": "",
+        "prepend": "",
+        "append": "",
+        "maxlength": ""
+      },
+      {
+        "key": "field_hfi_tab_proof",
+        "label": "Proof",
+        "name": "",
+        "type": "tab",
+        "placement": "top",
+        "endpoint": 0
+      },
+      {
+        "key": "field_hfi_proof_title",
+        "label": "Title",
+        "name": "proof_title",
+        "type": "text",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "default_value": "This isn’t a dream. It’s already been done once.",
+        "placeholder": "",
+        "prepend": "",
+        "append": "",
+        "maxlength": ""
+      },
+      {
+        "key": "field_hfi_proof_text",
+        "label": "Body",
+        "name": "proof_text",
+        "type": "textarea",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "default_value": "In 2015, Maharashtra’s Transport Commissioner ordered “Horn OK Please” removed from commercial vehicles across the state — with a single administrative circular.",
+        "new_lines": "br",
+        "rows": 4,
+        "placeholder": ""
+      },
+      {
+        "key": "field_hfi_proof_punchline",
+        "label": "Punchline",
+        "name": "proof_punchline",
+        "type": "textarea",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "default_value": "If one state can do it with the stroke of a pen, the country can too. We just have to ask — together.",
+        "new_lines": "br",
+        "rows": 4,
+        "placeholder": ""
+      },
+      {
+        "key": "field_hfi_tab_momentum",
+        "label": "Momentum",
+        "name": "",
+        "type": "tab",
+        "placement": "top",
+        "endpoint": 0
+      },
+      {
+        "key": "field_hfi_momentum_title",
+        "label": "Title",
+        "name": "momentum_title",
+        "type": "text",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "default_value": "You’d be joining a movement that’s already moving.",
+        "placeholder": "",
+        "prepend": "",
+        "append": "",
+        "maxlength": ""
+      },
+      {
+        "key": "field_hfi_movement_starting_count",
+        "label": "Verified existing count",
+        "name": "movement_starting_count",
+        "type": "number",
+        "instructions": "Optional: enter only a verified legacy supporter total. New supporters are counted when they click Send my email.",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "default_value": 0,
+        "min": "",
+        "max": "",
+        "step": "",
+        "placeholder": "",
+        "prepend": "",
+        "append": ""
+      },
+      {
+        "key": "field_hfi_momentum_label",
+        "label": "Counter label",
+        "name": "momentum_label",
+        "type": "text",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "default_value": "Indians have added their voice",
+        "placeholder": "",
+        "prepend": "",
+        "append": "",
+        "maxlength": ""
+      },
+      {
+        "key": "field_hfi_momentum_cities",
+        "label": "Cities count",
+        "name": "momentum_cities",
+        "type": "number",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "default_value": 180,
+        "min": "",
+        "max": "",
+        "step": "",
+        "placeholder": "",
+        "prepend": "",
+        "append": ""
+      },
+      {
+        "key": "field_hfi_momentum_states",
+        "label": "States count",
+        "name": "momentum_states",
+        "type": "number",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "default_value": 24,
+        "min": "",
+        "max": "",
+        "step": "",
+        "placeholder": "",
+        "prepend": "",
+        "append": ""
+      },
+      {
+        "key": "field_hfi_voice_quote_1",
+        "label": "Voice quote 1",
+        "name": "voice_quote_1",
+        "type": "textarea",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "default_value": "I forgot what quiet sounds like. I want it back.",
+        "new_lines": "br",
+        "rows": 4,
+        "placeholder": ""
+      },
+      {
+        "key": "field_hfi_voice_author_1",
+        "label": "Voice author 1",
+        "name": "voice_author_1",
+        "type": "text",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "default_value": "— A supporter",
+        "placeholder": "",
+        "prepend": "",
+        "append": "",
+        "maxlength": ""
+      },
+      {
+        "key": "field_hfi_voice_quote_2",
+        "label": "Voice quote 2",
+        "name": "voice_quote_2",
+        "type": "textarea",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "default_value": "My daughter covers her ears every morning on the way to school.",
+        "new_lines": "br",
+        "rows": 4,
+        "placeholder": ""
+      },
+      {
+        "key": "field_hfi_voice_author_2",
+        "label": "Voice author 2",
+        "name": "voice_author_2",
+        "type": "text",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "default_value": "— A parent",
+        "placeholder": "",
+        "prepend": "",
+        "append": "",
+        "maxlength": ""
+      },
+      {
+        "key": "field_hfi_voice_quote_3",
+        "label": "Voice quote 3",
+        "name": "voice_quote_3",
+        "type": "textarea",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "default_value": "I drive a truck. I never wanted my work to be the loudest thing on the street.",
+        "new_lines": "br",
+        "rows": 4,
+        "placeholder": ""
+      },
+      {
+        "key": "field_hfi_voice_author_3",
+        "label": "Voice author 3",
+        "name": "voice_author_3",
+        "type": "text",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "default_value": "— A driver",
+        "placeholder": "",
+        "prepend": "",
+        "append": "",
+        "maxlength": ""
+      },
+      {
+        "key": "field_hfi_tab_story",
+        "label": "Our Story",
+        "name": "",
+        "type": "tab",
+        "placement": "top",
+        "endpoint": 0
+      },
+      {
+        "key": "field_hfi_story_title",
+        "label": "Title",
+        "name": "story_title",
+        "type": "text",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "default_value": "Who’s behind this?",
+        "placeholder": "",
+        "prepend": "",
+        "append": "",
+        "maxlength": ""
+      },
+      {
+        "key": "field_hfi_story_text",
+        "label": "Story",
+        "name": "story_text",
+        "type": "textarea",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "default_value": "Horn Free India is a citizen movement. We are not an NGO, not a company, and not tied to any political party.",
+        "new_lines": "br",
+        "rows": 4,
+        "placeholder": ""
+      },
+      {
+        "key": "field_hfi_promise_1",
+        "label": "Promise 1",
+        "name": "promise_1",
+        "type": "textarea",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "default_value": "We never take money. The only thing we collect is voices.",
+        "new_lines": "br",
+        "rows": 4,
+        "placeholder": ""
+      },
+      {
+        "key": "field_hfi_promise_2",
+        "label": "Promise 2",
+        "name": "promise_2",
+        "type": "textarea",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "default_value": "We’re non-partisan. This is about peace and safety, not politics.",
+        "new_lines": "br",
+        "rows": 4,
+        "placeholder": ""
+      },
+      {
+        "key": "field_hfi_promise_3",
+        "label": "Promise 3",
+        "name": "promise_3",
+        "type": "textarea",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "default_value": "We’re real and reachable.",
+        "new_lines": "br",
+        "rows": 4,
+        "placeholder": ""
+      },
+      {
+        "key": "field_hfi_tab_closing",
+        "label": "Closing CTA",
+        "name": "",
+        "type": "tab",
+        "placement": "top",
+        "endpoint": 0
+      },
+      {
+        "key": "field_hfi_closing_title",
+        "label": "Title",
+        "name": "closing_title",
+        "type": "text",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "default_value": "India said <span class=\"calm\">Om Shanti</span> to the world. It’s time our streets said it too.",
+        "placeholder": "",
+        "prepend": "",
+        "append": "",
+        "maxlength": ""
+      },
+      {
+        "key": "field_hfi_closing_text",
+        "label": "Body",
+        "name": "closing_text",
+        "type": "textarea",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "default_value": "It costs you nothing but a name and three minutes.",
+        "new_lines": "br",
+        "rows": 4,
+        "placeholder": ""
+      },
+      {
+        "key": "field_hfi_closing_button",
+        "label": "Button label",
+        "name": "closing_button",
+        "type": "text",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "default_value": "Join the movement",
+        "placeholder": "",
+        "prepend": "",
+        "append": "",
+        "maxlength": ""
+      }
+    ],
+    "location": [
+      [
+        {
+          "param": "page_type",
+          "operator": "==",
+          "value": "front_page"
+        }
+      ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "All editable content for the Horn Free India homepage.",
+    "show_in_rest": 0,
+    "modified": 1785816585
+  }
+]
