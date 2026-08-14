@@ -26,7 +26,7 @@ function horn_free_theme_acf_fields() {
 		'ask' => array( 'ask_title'=>'Title|text', 'ask_intro'=>'Introduction|textarea', 'ask_card_1'=>'Card 1|text', 'ask_card_2'=>'Card 2|text', 'ask_card_3'=>'Card 3|text', 'ask_card_3_note'=>'Card 3 note|text', 'ask_closing'=>'Closing line|text' ),
 		'proof' => array( 'proof_title'=>'Title|text', 'proof_text'=>'Body|textarea', 'proof_punchline'=>'Punchline|textarea' ),
 		'action' => array( 'action_title'=>'Title|text', 'action_intro'=>'Introduction|text', 'action_step_1_title'=>'Step 1 title|text', 'action_step_1_text'=>'Step 1 text|textarea', 'action_step_2_title'=>'Step 2 title|text', 'action_step_2_text'=>'Step 2 text|textarea', 'action_step_3_title'=>'Step 3 title|text', 'action_step_3_text'=>'Step 3 text|textarea', 'email_cc'=>'Email CC|email', 'action_closing'=>'Closing line|text' ),
-		'momentum' => array( 'momentum_title'=>'Title|text', 'movement_starting_count'=>'Verified existing count|number', 'momentum_label'=>'Counter label|text', 'momentum_cities'=>'Cities count|number', 'momentum_states'=>'States count|number', 'voice_quote_1'=>'Voice quote 1|textarea', 'voice_author_1'=>'Voice author 1|text', 'voice_quote_2'=>'Voice quote 2|textarea', 'voice_author_2'=>'Voice author 2|text', 'voice_quote_3'=>'Voice quote 3|textarea', 'voice_author_3'=>'Voice author 3|text' ),
+		'momentum' => array( 'momentum_title'=>'Title|text', 'movement_starting_count'=>'Verified existing count|number', 'momentum_label'=>'Counter label|text', 'voice_quote_1'=>'Voice quote 1|textarea', 'voice_author_1'=>'Voice author 1|text', 'voice_quote_2'=>'Voice quote 2|textarea', 'voice_author_2'=>'Voice author 2|text', 'voice_quote_3'=>'Voice quote 3|textarea', 'voice_author_3'=>'Voice author 3|text' ),
 		'story' => array( 'story_title'=>'Title|text', 'story_text'=>'Story|textarea', 'promise_1'=>'Promise 1|textarea', 'promise_2'=>'Promise 2|textarea', 'promise_3'=>'Promise 3|textarea' ),
 		'closing' => array( 'closing_title'=>'Title|text', 'closing_text'=>'Body|textarea', 'closing_button'=>'Button label|text' ),
 	);
@@ -55,7 +55,7 @@ function horn_free_theme_acf_fields() {
 		'email_cc'=>'shanti@hornfreeindia.org',
 		'action_closing'=>'That’s all. No fee, no form-filling marathon, no catch. Just your voice, counted.',
 		'momentum_title'=>'You’d be joining a movement that’s already moving.', 'movement_starting_count'=>0,
-		'momentum_label'=>'Indians have added their voice', 'momentum_cities'=>180, 'momentum_states'=>24,
+		'momentum_label'=>'People have added their voices',
 		'voice_quote_1'=>'I forgot what quiet sounds like. I want it back.', 'voice_author_1'=>'— A supporter',
 		'voice_quote_2'=>'My daughter covers her ears every morning on the way to school.', 'voice_author_2'=>'— A parent',
 		'voice_quote_3'=>'I drive a truck. I never wanted my work to be the loudest thing on the street.', 'voice_author_3'=>'— A driver',

@@ -764,53 +764,11 @@
           "class": "",
           "id": ""
         },
-        "default_value": "Indians have added their voice",
+        "default_value": "People have added their voices",
         "placeholder": "",
         "prepend": "",
         "append": "",
         "maxlength": ""
-      },
-      {
-        "key": "field_hfi_momentum_cities",
-        "label": "Cities count",
-        "name": "momentum_cities",
-        "type": "number",
-        "instructions": "",
-        "required": 0,
-        "conditional_logic": 0,
-        "wrapper": {
-          "width": "",
-          "class": "",
-          "id": ""
-        },
-        "default_value": 180,
-        "min": "",
-        "max": "",
-        "step": "",
-        "placeholder": "",
-        "prepend": "",
-        "append": ""
-      },
-      {
-        "key": "field_hfi_momentum_states",
-        "label": "States count",
-        "name": "momentum_states",
-        "type": "number",
-        "instructions": "",
-        "required": 0,
-        "conditional_logic": 0,
-        "wrapper": {
-          "width": "",
-          "class": "",
-          "id": ""
-        },
-        "default_value": 24,
-        "min": "",
-        "max": "",
-        "step": "",
-        "placeholder": "",
-        "prepend": "",
-        "append": ""
       },
       {
         "key": "field_hfi_voice_quote_1",
