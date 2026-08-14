@@ -115,7 +115,7 @@
 
   function copyableEmail() {
     if (!emailDraft) return "";
-    return "To: " + emailDraft.to + "\nSubject: " + emailDraft.subject + "\n\n" + emailDraft.body;
+    return emailDraft.body;
   }
 
   function buildWhatsapp(name) {
@@ -223,11 +223,15 @@
     area.value = text;
     area.setAttribute("readonly", "");
     area.style.position = "fixed";
-    area.style.opacity = "0";
+    area.style.left = "-9999px";
+    area.style.top = "0";
     document.body.appendChild(area);
+    area.focus();
     area.select();
-    document.execCommand("copy");
+    area.setSelectionRange(0, area.value.length);
+    var copied = document.execCommand("copy");
     area.remove();
+    if (!copied) throw new Error("Unable to copy automatically. Please try again.");
   }
 
   if (emailBtn) {
@@ -253,7 +257,7 @@
         await recordEmailChoice();
         if (method === "copy") {
           await copyEmailMessage();
-          if (emailDialogStatus) emailDialogStatus.textContent = "Email message copied. Paste it into your preferred email service.";
+          if (emailDialogStatus) emailDialogStatus.textContent = "Email body copied. Paste it into your preferred email service.";
         } else if (method === "default") {
           closeEmailDialog();
           window.location.href = emailUrl("default");
