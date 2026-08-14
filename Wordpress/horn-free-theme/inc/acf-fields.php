@@ -39,7 +39,7 @@ function horn_free_theme_acf_fields() {
 		'problem_title'=>'Our roads are loud, and it’s costing us more than our calm.',
 		'problem_intro'=>'Constant honking isn’t just noise. It’s a daily assault on our hearing, our nerves, and our cities — and it’s so normal we’ve stopped noticing.',
 		'stat_1_number'=>'80–120 dB', 'stat_1_text'=>'A single truck horn. The safe limit for a residential street is 55 dB.',
-		'stat_2_number'=>'1.5 lakh+', 'stat_2_text'=>'Lives lost on Indian roads every year. Roads this dangerous shouldn’t also be this hostile.',
+		'stat_2_number'=>'1.5 lakh+ deaths', 'stat_2_text'=>'Lives lost on Indian roads every year. Roads this dangerous shouldn’t also be this hostile.',
 		'stat_3_number'=>'Every day', 'stat_3_text'=>'Millions of trucks pass schools, hospitals and homes carrying the words Blow Horn.',
 		'ask_title'=>'We’re not asking for silence. We’re asking for three words to change.',
 		'ask_intro'=>'For decades, India’s commercial vehicles have carried signage that invites honking. Our ask is simple: replace that signage with a message that asks for the opposite.',
