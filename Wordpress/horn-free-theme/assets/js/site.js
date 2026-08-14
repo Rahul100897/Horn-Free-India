@@ -91,7 +91,6 @@
 
   function buildEmailDraft(name, state, country) {
     var to = emailBtn && emailBtn.dataset.to ? emailBtn.dataset.to : "nitin.gadkari@nic.in";
-    var cc = emailBtn && emailBtn.dataset.cc ? emailBtn.dataset.cc : "shanti@hornfreeindia.org";
     var subject = "Request to Replace 'Blow Horn' Signage on Commercial Vehicles";
     var body =
       "Respected Shri Gadkari ji,\n\n" +
@@ -103,20 +102,20 @@
       "peace that India is known for.\n\n" +
       "I add my voice to thousands of citizens of Horn Free India who hope for quieter, safer streets.\n\n" +
       "With respect and gratitude,\n" + name + "\n" + state + ", " + country;
-    return { to: to, cc: cc, subject: subject, body: body };
+    return { to: to, subject: subject, body: body };
   }
 
   function emailUrl(provider) {
     if (!emailDraft) return "";
     var d = emailDraft;
-    if (provider === "gmail") return "https://mail.google.com/mail/?view=cm&fs=1&to=" + encodeURIComponent(d.to) + "&cc=" + encodeURIComponent(d.cc) + "&su=" + encodeURIComponent(d.subject) + "&body=" + encodeURIComponent(d.body);
-    if (provider === "outlook") return "https://outlook.live.com/mail/0/deeplink/compose?to=" + encodeURIComponent(d.to) + "&cc=" + encodeURIComponent(d.cc) + "&subject=" + encodeURIComponent(d.subject) + "&body=" + encodeURIComponent(d.body);
-    return "mailto:" + d.to + "?cc=" + encodeURIComponent(d.cc) + "&subject=" + encodeURIComponent(d.subject) + "&body=" + encodeURIComponent(d.body);
+    if (provider === "gmail") return "https://mail.google.com/mail/?view=cm&fs=1&to=" + encodeURIComponent(d.to) + "&su=" + encodeURIComponent(d.subject) + "&body=" + encodeURIComponent(d.body);
+    if (provider === "outlook") return "https://outlook.live.com/mail/0/deeplink/compose?to=" + encodeURIComponent(d.to) + "&subject=" + encodeURIComponent(d.subject) + "&body=" + encodeURIComponent(d.body);
+    return "mailto:" + d.to + "?subject=" + encodeURIComponent(d.subject) + "&body=" + encodeURIComponent(d.body);
   }
 
   function copyableEmail() {
     if (!emailDraft) return "";
-    return "To: " + emailDraft.to + "\nCC: " + emailDraft.cc + "\nSubject: " + emailDraft.subject + "\n\n" + emailDraft.body;
+    return "To: " + emailDraft.to + "\nSubject: " + emailDraft.subject + "\n\n" + emailDraft.body;
   }
 
   function buildWhatsapp(name) {

@@ -463,25 +463,6 @@
         "placeholder": ""
       },
       {
-        "key": "field_hfi_email_cc",
-        "label": "Email CC",
-        "name": "email_cc",
-        "type": "email",
-        "instructions": "",
-        "required": 0,
-        "conditional_logic": 0,
-        "wrapper": {
-          "width": "",
-          "class": "",
-          "id": ""
-        },
-        "default_value": "shanti@hornfreeindia.org",
-        "placeholder": "",
-        "prepend": "",
-        "append": "",
-        "maxlength": ""
-      },
-      {
         "key": "field_hfi_action_closing",
         "label": "Closing line",
         "name": "action_closing",
