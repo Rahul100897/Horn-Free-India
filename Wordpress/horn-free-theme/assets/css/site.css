@@ -79,11 +79,14 @@ section[id] { scroll-margin-top: calc(var(--header-h) + 12px); }
 /* Header CTA: full label on desktop, "Join" on mobile (collapsed nav) */
 .cta-short { display: none; }
 .btn:active { transform: translateY(1px); }
-.btn-primary { background: var(--accent); color: #fff; box-shadow: 0 6px 18px -8px var(--accent-ink); }
+.btn-primary,
+.btn-primary:visited { background: var(--accent); color: #fff; box-shadow: 0 6px 18px -8px var(--accent-ink); }
 .btn-primary:hover { background: var(--accent-ink); }
-.btn-ghost { background: transparent; color: var(--ink); border: 1.5px solid var(--line); }
+.btn-ghost,
+.btn-ghost:visited { background: transparent; color: var(--ink); border: 1.5px solid var(--line); }
 .btn-ghost:hover { border-color: var(--shanti); color: var(--shanti); }
-.btn-whatsapp { background: #25925a; color: #fff; }
+.btn-whatsapp,
+.btn-whatsapp:visited { background: #25925a; color: #fff; }
 .btn-whatsapp:hover { background: #1d7849; }
 .btn-sm { padding: 0.6rem 1.1rem; min-height: 40px; font-size: 0.95rem; }
 .btn-block { display: flex; width: 100%; }
