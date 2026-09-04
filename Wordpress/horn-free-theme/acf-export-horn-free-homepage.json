@@ -281,7 +281,7 @@
           "class": "",
           "id": ""
         },
-        "default_value": "Every day",
+        "default_value": "Stress, BP, Tinnitus",
         "placeholder": "",
         "prepend": "",
         "append": "",
@@ -300,7 +300,7 @@
           "class": "",
           "id": ""
         },
-        "default_value": "Millions of trucks pass schools, hospitals and homes carrying the words Blow Horn.",
+        "default_value": "Horns lead to higher stress levels, higher blood pressure, and ear damage called tinnitus.",
         "new_lines": "br",
         "rows": 4,
         "placeholder": ""

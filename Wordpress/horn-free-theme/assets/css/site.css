@@ -100,7 +100,7 @@ section[id] { scroll-margin-top: calc(var(--header-h) + 12px); }
 }
 .header-inner { display: flex; align-items: center; gap: 1rem; min-height: var(--header-h); }
 .brand { display: flex; align-items: center; gap: 0.55rem; text-decoration: none; color: var(--ink); margin-right: auto; }
-.brand-mark { color: var(--shanti); font-size: 1.45rem; line-height: 1; }
+.brand-mark { width: 28px; height: 28px; object-fit: contain; flex: 0 0 28px; }
 .brand-name { font-family: var(--serif); font-weight: 600; font-size: 1.18rem; letter-spacing: -0.01em; }
 .brand-name span { color: var(--shanti); }
 
