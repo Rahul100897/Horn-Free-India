@@ -97,6 +97,7 @@ section[id] { scroll-margin-top: calc(var(--header-h) + 12px); }
   background: color-mix(in srgb, var(--paper) 88%, transparent);
   backdrop-filter: saturate(140%) blur(10px);
   border-bottom: 1px solid var(--line);
+  padding: 5px 0;
 }
 .header-inner { display: flex; align-items: center; gap: 1rem; min-height: var(--header-h); }
 .brand { display: flex; align-items: center; align-self: stretch; text-decoration: none; margin-right: auto; }
@@ -303,8 +304,10 @@ body.email-dialog-open { overflow: hidden; }
 }
 
 @media (max-width: 860px) {
+  .brand-logo { width: 72px; height: 72px; flex-basis: 72px; }
+  .nav { display: flex; align-items: center; }
   .nav-menu {
-    position: absolute; top: var(--header-h); left: 0; right: 0;
+    position: absolute; top: 100%; left: 0; right: 0;
     flex-direction: column; gap: 0; background: var(--paper-2);
     border-bottom: 1px solid var(--line); padding: 0.5rem 1.2rem 1rem;
     box-shadow: 0 12px 24px -16px rgba(0,0,0,.3);
@@ -315,13 +318,18 @@ body.email-dialog-open { overflow: hidden; }
   .nav-menu a { display: block; padding: 0.9rem 0; }
   .nav-toggle {
     display: inline-grid; place-items: center; width: 44px; height: 44px;
+    flex: 0 0 44px; padding: 0; line-height: 1;
     background: transparent; border: 1.5px solid var(--line); border-radius: 10px; cursor: pointer;
   }
   .nav-bars, .nav-bars::before, .nav-bars::after {
     content: ""; display: block; width: 20px; height: 2px; background: var(--ink); position: relative;
+    transition: transform .2s ease, top .2s ease, background .2s ease;
   }
   .nav-bars::before { position: absolute; top: -6px; }
   .nav-bars::after { position: absolute; top: 6px; }
+  .nav-toggle[aria-expanded="true"] .nav-bars { background: transparent; }
+  .nav-toggle[aria-expanded="true"] .nav-bars::before { top: 0; transform: rotate(45deg); }
+  .nav-toggle[aria-expanded="true"] .nav-bars::after { top: 0; transform: rotate(-45deg); }
   .header-counter { display: none; }
   .header-cta .cta-full { display: none; }
   .header-cta .cta-short { display: inline; }

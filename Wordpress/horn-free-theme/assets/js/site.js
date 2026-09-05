@@ -22,6 +22,19 @@
         toggle.setAttribute("aria-expanded", "false");
       }
     });
+    document.addEventListener("click", function (e) {
+      if (!toggle.contains(e.target) && !menu.contains(e.target)) {
+        menu.classList.remove("open");
+        toggle.setAttribute("aria-expanded", "false");
+      }
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && menu.classList.contains("open")) {
+        menu.classList.remove("open");
+        toggle.setAttribute("aria-expanded", "false");
+        toggle.focus();
+      }
+    });
   }
 
   /* ---------- Animated count-up ---------- */
