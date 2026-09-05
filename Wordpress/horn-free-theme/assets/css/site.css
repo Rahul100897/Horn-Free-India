@@ -99,10 +99,8 @@ section[id] { scroll-margin-top: calc(var(--header-h) + 12px); }
   border-bottom: 1px solid var(--line);
 }
 .header-inner { display: flex; align-items: center; gap: 1rem; min-height: var(--header-h); }
-.brand { display: flex; align-items: center; gap: 0.55rem; text-decoration: none; color: var(--ink); margin-right: auto; }
-.brand-mark { width: 28px; height: 28px; object-fit: contain; flex: 0 0 28px; }
-.brand-name { font-family: var(--serif); font-weight: 600; font-size: 1.18rem; letter-spacing: -0.01em; }
-.brand-name span { color: var(--shanti); }
+.brand { display: flex; align-items: center; align-self: stretch; text-decoration: none; margin-right: auto; }
+.brand-logo { display: block; width: 58px; height: 58px; object-fit: contain; flex: 0 0 58px; }
 
 .nav-menu { list-style: none; display: flex; gap: 1.4rem; margin: 0; padding: 0; }
 .nav-menu a { text-decoration: none; color: var(--ink-soft); font-size: 0.97rem; font-weight: 500; }
