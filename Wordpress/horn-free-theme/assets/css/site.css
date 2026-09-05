@@ -100,7 +100,7 @@ section[id] { scroll-margin-top: calc(var(--header-h) + 12px); }
 }
 .header-inner { display: flex; align-items: center; gap: 1rem; min-height: var(--header-h); }
 .brand { display: flex; align-items: center; align-self: stretch; text-decoration: none; margin-right: auto; }
-.brand-logo { display: block; width: 58px; height: 58px; object-fit: contain; flex: 0 0 58px; }
+.brand-logo { display: block; width: 98px; height: 98px; object-fit: contain; flex: 0 0 98px; }
 
 .nav-menu { list-style: none; display: flex; gap: 1.4rem; margin: 0; padding: 0; }
 .nav-menu a { text-decoration: none; color: var(--ink-soft); font-size: 0.97rem; font-weight: 500; }
