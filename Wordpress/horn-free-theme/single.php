@@ -6,11 +6,25 @@ get_header();
 <?php while ( have_posts() ) : the_post(); ?>
 	<article id="post-<?php the_ID(); ?>" <?php post_class( 'blog-article' ); ?>>
 		<header class="blog-single-header section-tint">
-			<div class="container blog-reading-width">
+			<div class="container blog-single-header-shell">
 				<a class="blog-back" href="<?php echo esc_url( horn_free_theme_blog_url() ); ?>">&larr; <?php esc_html_e( 'All stories', 'horn-free-theme' ); ?></a>
-				<p class="eyebrow"><?php esc_html_e( 'Horn Free India Journal', 'horn-free-theme' ); ?></p>
-				<h1><?php the_title(); ?></h1>
-				<div class="blog-meta"><time datetime="<?php echo esc_attr( get_the_date( DATE_W3C ) ); ?>"><?php echo esc_html( get_the_date() ); ?></time><span aria-hidden="true">&middot;</span><span><?php echo esc_html( horn_free_theme_reading_time() ); ?></span></div>
+				<div class="blog-reading-width blog-single-title">
+					<p class="eyebrow"><?php esc_html_e( 'Horn Free India Journal', 'horn-free-theme' ); ?></p>
+					<h1><?php the_title(); ?></h1>
+					<div class="blog-meta"><time datetime="<?php echo esc_attr( get_the_date( DATE_W3C ) ); ?>"><?php echo esc_html( get_the_date() ); ?></time><span aria-hidden="true">&middot;</span><span><?php echo esc_html( horn_free_theme_reading_time() ); ?></span></div>
+					<?php
+					$share_url   = get_permalink();
+					$share_title = wp_strip_all_tags( get_the_title() );
+					?>
+					<nav class="blog-share" aria-label="<?php esc_attr_e( 'Share this story', 'horn-free-theme' ); ?>">
+						<span><?php esc_html_e( 'Share', 'horn-free-theme' ); ?></span>
+						<a href="<?php echo esc_url( 'https://wa.me/?text=' . rawurlencode( $share_title . ' ' . $share_url ) ); ?>" target="_blank" rel="noopener noreferrer"><?php esc_html_e( 'WhatsApp', 'horn-free-theme' ); ?></a>
+						<a href="<?php echo esc_url( 'https://www.facebook.com/sharer/sharer.php?u=' . rawurlencode( $share_url ) ); ?>" target="_blank" rel="noopener noreferrer"><?php esc_html_e( 'Facebook', 'horn-free-theme' ); ?></a>
+						<a href="<?php echo esc_url( 'https://twitter.com/intent/tweet?text=' . rawurlencode( $share_title ) . '&url=' . rawurlencode( $share_url ) ); ?>" target="_blank" rel="noopener noreferrer"><?php esc_html_e( 'X', 'horn-free-theme' ); ?></a>
+						<button type="button" data-blog-copy data-copy-url="<?php echo esc_url( $share_url ); ?>"><?php esc_html_e( 'Copy link', 'horn-free-theme' ); ?></button>
+						<span class="blog-share-status" data-blog-share-status role="status" aria-live="polite"></span>
+					</nav>
+				</div>
 			</div>
 		</header>
 		<?php if ( has_post_thumbnail() ) : ?>

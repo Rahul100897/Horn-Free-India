@@ -37,6 +37,31 @@
     });
   }
 
+  /* ---------- Blog sharing ---------- */
+  var blogCopyButtons = document.querySelectorAll("[data-blog-copy]");
+  blogCopyButtons.forEach(function (button) {
+    button.addEventListener("click", async function () {
+      var url = button.getAttribute("data-copy-url") || window.location.href;
+      var share = button.closest(".blog-share");
+      var status = share ? share.querySelector("[data-blog-share-status]") : null;
+      try {
+        await navigator.clipboard.writeText(url);
+        if (status) status.textContent = "Link copied.";
+      } catch (error) {
+        var field = document.createElement("textarea");
+        field.value = url;
+        field.setAttribute("readonly", "");
+        field.style.position = "fixed";
+        field.style.opacity = "0";
+        document.body.appendChild(field);
+        field.select();
+        var copied = document.execCommand("copy");
+        field.remove();
+        if (status) status.textContent = copied ? "Link copied." : "Copy failed. Please copy the address from your browser.";
+      }
+    });
+  });
+
   /* ---------- Animated count-up ---------- */
   function animateCounter(el) {
     var target = parseInt(el.getAttribute("data-target"), 10) || 0;

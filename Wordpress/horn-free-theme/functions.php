@@ -141,10 +141,12 @@ function horn_free_theme_scripts() {
 	wp_enqueue_style( 'horn-free-theme-style', get_stylesheet_uri(), array(), _S_VERSION );
 	wp_style_add_data( 'horn-free-theme-style', 'rtl', 'replace' );
 	wp_enqueue_style( 'horn-free-theme-fonts', 'https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..600&family=Inter:wght@400;500;600&family=Noto+Sans+Devanagari:wght@400;600&display=swap', array(), null );
-	wp_enqueue_style( 'horn-free-theme-site', get_template_directory_uri() . '/assets/css/site.css', array( 'horn-free-theme-style', 'horn-free-theme-fonts' ), _S_VERSION );
+	$site_css_path = get_template_directory() . '/assets/css/site.css';
+	wp_enqueue_style( 'horn-free-theme-site', get_template_directory_uri() . '/assets/css/site.css', array( 'horn-free-theme-style', 'horn-free-theme-fonts' ), file_exists( $site_css_path ) ? filemtime( $site_css_path ) : _S_VERSION );
 
 	wp_enqueue_script( 'horn-free-theme-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
-	wp_enqueue_script( 'horn-free-theme-site', get_template_directory_uri() . '/assets/js/site.js', array(), _S_VERSION, true );
+	$site_js_path = get_template_directory() . '/assets/js/site.js';
+	wp_enqueue_script( 'horn-free-theme-site', get_template_directory_uri() . '/assets/js/site.js', array(), file_exists( $site_js_path ) ? filemtime( $site_js_path ) : _S_VERSION, true );
 	wp_localize_script( 'horn-free-theme-site', 'hfiSettings', array(
 		'ajaxUrl' => admin_url( 'admin-ajax.php' ), 'nonce' => wp_create_nonce( 'hfi_join_movement' ),
 		'siteUrl' => home_url( '/' ), 'genericError' => __( 'Something went wrong. Please try again.', 'horn-free-theme' ),
