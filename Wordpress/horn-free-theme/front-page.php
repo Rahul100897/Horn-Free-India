@@ -39,6 +39,25 @@ $image_alt = is_array( $image ) && ! empty( $image['alt'] ) ? $image['alt'] : __
 <section class="section section-tint" id="momentum"><div class="container narrow reveal momentum"><h2 class="section-title"><?php echo esc_html( $f( 'momentum_title', 'You’d be joining a movement that’s already moving.' ) ); ?></h2><p class="big-counter"><span data-counter data-target="<?php echo esc_attr( $count ); ?>"><?php echo esc_html( number_format_i18n( $count ) ); ?></span></p><p class="counter-label"><?php echo esc_html( $momentum_label ); ?></p><figure class="voices" data-voices="<?php echo esc_attr( wp_json_encode( array( array('q'=>$f('voice_quote_1','I forgot what quiet sounds like. I want it back.'),'a'=>$f('voice_author_1','— A supporter')), array('q'=>$f('voice_quote_2','My daughter covers her ears every morning on the way to school.'),'a'=>$f('voice_author_2','— A parent')), array('q'=>$f('voice_quote_3','I drive a truck. I never wanted my work to be the loudest thing on the street.'),'a'=>$f('voice_author_3','— A driver')) ) ) ); ?>"><blockquote id="voice-quote">“<?php echo esc_html( $f( 'voice_quote_1', 'I forgot what quiet sounds like. I want it back.' ) ); ?>”</blockquote><figcaption id="voice-author"><?php echo esc_html( $f( 'voice_author_1', '— A supporter' ) ); ?></figcaption></figure></div></section>
 
 <section class="section" id="story"><div class="container narrow reveal"><h2 class="section-title"><?php echo esc_html( $f( 'story_title', 'Who’s behind this?' ) ); ?></h2><p class="lede"><?php echo wp_kses_post( nl2br( $f( 'story_text', 'Horn Free India is a citizen movement. We are not an NGO, not a company, and not tied to any political party.' ) ) ); ?></p><ul class="promises"><?php for($i=1;$i<=3;$i++): $defaults=array('We never take money. The only thing we collect is voices.','We’re non-partisan. This is about peace and safety, not politics.','We’re real and reachable.'); ?><li><?php echo wp_kses_post( nl2br( $f( 'promise_'.$i, $defaults[$i-1] ) ) ); ?></li><?php endfor; ?></ul></div></section>
+<?php
+$recent_posts = new WP_Query(
+	array(
+		'post_type'           => 'post',
+		'post_status'         => 'publish',
+		'posts_per_page'      => 3,
+		'ignore_sticky_posts' => true,
+	)
+);
+if ( $recent_posts->have_posts() ) :
+	?>
+	<section class="section section-tint home-blog" id="journal"><div class="container">
+		<div class="blog-section-heading reveal"><div><p class="eyebrow"><?php esc_html_e( 'From the journal', 'horn-free-theme' ); ?></p><h2><?php esc_html_e( 'Ideas for quieter roads', 'horn-free-theme' ); ?></h2><p><?php esc_html_e( 'Stories, evidence and answers behind the Horn Free India movement.', 'horn-free-theme' ); ?></p></div><a class="blog-view-all" href="<?php echo esc_url( horn_free_theme_blog_url() ); ?>"><?php esc_html_e( 'View all stories', 'horn-free-theme' ); ?> <span aria-hidden="true">&rarr;</span></a></div>
+		<div class="blog-grid reveal"><?php while ( $recent_posts->have_posts() ) : $recent_posts->the_post(); get_template_part( 'template-parts/content', 'blog-card' ); endwhile; ?></div>
+	</div></section>
+	<?php
+endif;
+wp_reset_postdata();
+?>
 <section class="section section-dark closing-cta" id="spread"><div class="container narrow reveal"><h2 class="section-title"><?php echo wp_kses_post( $f( 'closing_title', 'India said <span class="calm">Om Shanti</span> to the world. It’s time our streets said it too.' ) ); ?></h2><p class="lede lede-light"><?php echo esc_html( $f( 'closing_text', 'It costs you nothing but a name and three minutes.' ) ); ?></p><a class="btn btn-primary" href="#action"><?php echo esc_html( $f( 'closing_button', 'Join the movement' ) ); ?></a></div></section>
 </main>
 <?php get_footer(); ?>

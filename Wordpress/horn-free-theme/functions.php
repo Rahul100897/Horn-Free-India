@@ -263,6 +263,113 @@ function horn_free_theme_confirm_email_click() {
 add_action( 'wp_ajax_hfi_confirm_email_click', 'horn_free_theme_confirm_email_click' );
 add_action( 'wp_ajax_nopriv_hfi_confirm_email_click', 'horn_free_theme_confirm_email_click' );
 
+/** Return the configured posts page URL, with a stable fallback. */
+function horn_free_theme_blog_url() {
+	$posts_page_id = absint( get_option( 'page_for_posts' ) );
+	return $posts_page_id ? get_permalink( $posts_page_id ) : home_url( '/blog/' );
+}
+
+/** Ensure Blog remains available even when a custom primary menu is active. */
+function horn_free_theme_add_blog_menu_item( $items, $args ) {
+	if ( isset( $args->theme_location ) && 'menu-1' === $args->theme_location && false === strpos( $items, horn_free_theme_blog_url() ) ) {
+		$items .= '<li class="menu-item menu-item-blog"><a href="' . esc_url( horn_free_theme_blog_url() ) . '">' . esc_html__( 'Blog', 'horn-free-theme' ) . '</a></li>';
+	}
+	return $items;
+}
+add_filter( 'wp_nav_menu_items', 'horn_free_theme_add_blog_menu_item', 10, 2 );
+
+/** Estimate reading time for the current post. */
+function horn_free_theme_reading_time( $post_id = 0 ) {
+	$post_id = $post_id ? absint( $post_id ) : get_the_ID();
+	$content = wp_strip_all_tags( strip_shortcodes( get_post_field( 'post_content', $post_id ) ) );
+	$words = str_word_count( $content );
+	$minutes = max( 1, (int) ceil( $words / 200 ) );
+	return sprintf( _n( '%s min read', '%s min read', $minutes, 'horn-free-theme' ), number_format_i18n( $minutes ) );
+}
+
+/**
+ * Create the requested starter article and Blog page once.
+ * Existing content is never overwritten, and the slug check prevents duplicates.
+ */
+function horn_free_theme_seed_initial_blog() {
+	if ( get_option( 'hfi_initial_blog_seeded' ) || ! current_user_can( 'edit_theme_options' ) ) {
+		return;
+	}
+
+	$blog_page_id = absint( get_option( 'page_for_posts' ) );
+	if ( ! $blog_page_id ) {
+		$blog_page = get_page_by_path( 'blog' );
+		$blog_page_id = $blog_page ? absint( $blog_page->ID ) : wp_insert_post(
+			array(
+				'post_type'   => 'page',
+				'post_status' => 'publish',
+				'post_title'  => __( 'Blog', 'horn-free-theme' ),
+				'post_name'   => 'blog',
+			)
+		);
+		if ( $blog_page_id && ! is_wp_error( $blog_page_id ) ) {
+			update_option( 'page_for_posts', absint( $blog_page_id ) );
+		}
+	}
+
+	$post = get_page_by_path( 'but-how-will-we-drive-without-horn', OBJECT, 'post' );
+	$post_id = $post ? absint( $post->ID ) : 0;
+	if ( ! $post_id ) {
+		$content = '<p>Every time I share the Horn Free India message, the same reply comes back: India is too dense, our cars too many, our roads too poor. Without the horn, how will we drive? There will be accidents.</p>';
+		$content .= '<p>It&rsquo;s a fair worry, so let me be clear about what Horn Free India actually asks.</p>';
+		$content .= '<p><strong>Blow the horn as needed.</strong> Nobody is asking you to drive blind through a crowded junction in silence. If a warning is needed, use it. That is not in question.</p>';
+		$content .= '<p>What we are questioning is something different: <strong>why do we advertise the horn?</strong></p>';
+		$content .= '<p>Look at the back of almost any Indian truck and you&rsquo;ll see two words - &ldquo;Blow Horn.&rdquo; We&rsquo;ve painted an instruction onto millions of moving vehicles. And advertising works. If every truck said &ldquo;Drink Coffee,&rdquo; coffee would sell more. If every truck said &ldquo;Eat Chips,&rdquo; we&rsquo;d eat more chips. So when every truck says &ldquo;Blow Horn,&rdquo; we honk more. It&rsquo;s not culture. It&rsquo;s a slogan we forgot to switch off.</p>';
+		$content .= '<h2>A slogan from another era</h2><p>&ldquo;Blow Horn&rdquo; made sense when:</p><ol><li>Roads were empty,</li><li>Cars were few, and</li><li>Trucks carried kerosene that could explode.</li></ol><p>That India no longer exists.</p>';
+		$content .= '<p>Here&rsquo;s the part we might overlook: the density argument isn&rsquo;t against us, it&rsquo;s for us. Precisely because our roads are crowded and stressful, the last thing we should be reinforcing is more noise. We should be sending messages of peace.</p>';
+		$content .= '<p><strong>Please horn when you need it. The advertising of the horn is what has to go.</strong></p>';
+		$content .= '<blockquote><p>A Viksit Bharat must also be a Shaant Bharat.</p></blockquote>';
+		$post_id = wp_insert_post(
+			array(
+				'post_type'    => 'post',
+				'post_status'  => 'publish',
+				'post_title'   => __( 'But How Will We Drive Without Horn? — Answering the Horn Free Objection', 'horn-free-theme' ),
+				'post_name'    => 'but-how-will-we-drive-without-horn',
+				'post_excerpt' => __( 'The Horn Free movement is not asking drivers to ignore danger. It is asking India to stop advertising unnecessary honking.', 'horn-free-theme' ),
+				'post_content' => wp_slash( $content ),
+			),
+			true
+		);
+	}
+
+	if ( is_wp_error( $post_id ) || ! $post_id ) {
+		return;
+	}
+
+	if ( ! has_post_thumbnail( $post_id ) ) {
+		$source = get_template_directory() . '/assets/images/but-how-will-we-drive-without-horn.jpg';
+		if ( file_exists( $source ) ) {
+			require_once ABSPATH . 'wp-admin/includes/file.php';
+			require_once ABSPATH . 'wp-admin/includes/media.php';
+			require_once ABSPATH . 'wp-admin/includes/image.php';
+			$temp_file = wp_tempnam( basename( $source ) );
+			if ( $temp_file && copy( $source, $temp_file ) ) {
+				$attachment_id = media_handle_sideload(
+					array( 'name' => basename( $source ), 'tmp_name' => $temp_file ),
+					$post_id,
+					get_the_title( $post_id )
+				);
+				if ( ! is_wp_error( $attachment_id ) ) {
+					update_post_meta( $attachment_id, '_wp_attachment_image_alt', __( 'A commercial truck carrying Blow Horn signage in busy city traffic.', 'horn-free-theme' ) );
+					set_post_thumbnail( $post_id, $attachment_id );
+				} else {
+					@unlink( $temp_file );
+				}
+			}
+		}
+	}
+
+	if ( has_post_thumbnail( $post_id ) ) {
+		update_option( 'hfi_initial_blog_seeded', 1, false );
+	}
+}
+add_action( 'admin_init', 'horn_free_theme_seed_initial_blog' );
+
 require get_template_directory() . '/inc/acf-fields.php';
 
 /**

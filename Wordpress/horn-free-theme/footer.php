@@ -1,6 +1,6 @@
 <footer class="site-footer"><div class="container footer-inner">
 	<p class="footer-tagline">Horn Free India — <em>From Blow Horn to Om Shanti.</em></p>
-	<nav class="footer-nav" aria-label="<?php esc_attr_e( 'Footer', 'horn-free-theme' ); ?>"><a href="#problem">The Problem</a><a href="#ask">Our Ask</a><a href="#action">Take Action</a><a href="#story">Our Story</a><a href="#spread">Spread the Word</a></nav>
+	<nav class="footer-nav" aria-label="<?php esc_attr_e( 'Footer', 'horn-free-theme' ); ?>"><a href="<?php echo esc_url( home_url( '/#problem' ) ); ?>">The Problem</a><a href="<?php echo esc_url( home_url( '/#ask' ) ); ?>">Our Ask</a><a href="<?php echo esc_url( home_url( '/#action' ) ); ?>">Take Action</a><a href="<?php echo esc_url( home_url( '/#story' ) ); ?>">Our Story</a><a href="<?php echo esc_url( horn_free_theme_blog_url() ); ?>">Blog</a><a href="<?php echo esc_url( home_url( '/#spread' ) ); ?>">Spread the Word</a></nav>
 	<p class="footer-contact"><a href="mailto:shanti@hornfreeindia.org">shanti@hornfreeindia.org</a></p>
 	<div class="footer-social" aria-label="<?php esc_attr_e( 'Follow Horn Free India', 'horn-free-theme' ); ?>">
 		<span><?php esc_html_e( 'Follow Horn Free India', 'horn-free-theme' ); ?></span>

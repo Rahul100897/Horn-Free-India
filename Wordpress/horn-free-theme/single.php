@@ -1,40 +1,51 @@
 <?php
-/**
- * The template for displaying all single posts
- *
- * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#single-post
- *
- * @package Horn-Free-Theme
- */
-
+/** Single blog post template. */
 get_header();
 ?>
+<main id="main" class="blog-single">
+<?php while ( have_posts() ) : the_post(); ?>
+	<article id="post-<?php the_ID(); ?>" <?php post_class( 'blog-article' ); ?>>
+		<header class="blog-single-header section-tint">
+			<div class="container blog-reading-width">
+				<a class="blog-back" href="<?php echo esc_url( horn_free_theme_blog_url() ); ?>">&larr; <?php esc_html_e( 'All stories', 'horn-free-theme' ); ?></a>
+				<p class="eyebrow"><?php esc_html_e( 'Horn Free India Journal', 'horn-free-theme' ); ?></p>
+				<h1><?php the_title(); ?></h1>
+				<div class="blog-meta"><time datetime="<?php echo esc_attr( get_the_date( DATE_W3C ) ); ?>"><?php echo esc_html( get_the_date() ); ?></time><span aria-hidden="true">&middot;</span><span><?php echo esc_html( horn_free_theme_reading_time() ); ?></span></div>
+			</div>
+		</header>
+		<?php if ( has_post_thumbnail() ) : ?>
+			<figure class="container blog-featured-image"><?php the_post_thumbnail( 'full', array( 'loading' => 'eager' ) ); ?></figure>
+		<?php endif; ?>
+		<div class="container blog-reading-width blog-content">
+			<?php the_content(); ?>
+			<?php wp_link_pages(); ?>
+		</div>
+	</article>
 
-	<main id="primary" class="site-main">
+	<section class="blog-post-cta section-dark">
+		<div class="container narrow">
+			<p class="eyebrow"><?php esc_html_e( 'Turn reading into action', 'horn-free-theme' ); ?></p>
+			<h2><?php esc_html_e( 'Add your voice for quieter roads.', 'horn-free-theme' ); ?></h2>
+			<a class="btn btn-primary" href="<?php echo esc_url( home_url( '/#action' ) ); ?>"><?php esc_html_e( 'Join the movement', 'horn-free-theme' ); ?></a>
+		</div>
+	</section>
 
-		<?php
-		while ( have_posts() ) :
-			the_post();
-
-			get_template_part( 'template-parts/content', get_post_type() );
-
-			the_post_navigation(
-				array(
-					'prev_text' => '<span class="nav-subtitle">' . esc_html__( 'Previous:', 'horn-free-theme' ) . '</span> <span class="nav-title">%title</span>',
-					'next_text' => '<span class="nav-subtitle">' . esc_html__( 'Next:', 'horn-free-theme' ) . '</span> <span class="nav-title">%title</span>',
-				)
-			);
-
-			// If comments are open or we have at least one comment, load up the comment template.
-			if ( comments_open() || get_comments_number() ) :
-				comments_template();
-			endif;
-
-		endwhile; // End of the loop.
+	<?php
+	$related = new WP_Query(
+		array(
+			'post_type'           => 'post',
+			'post_status'         => 'publish',
+			'posts_per_page'      => 3,
+			'post__not_in'        => array( get_the_ID() ),
+			'ignore_sticky_posts' => true,
+		)
+	);
+	if ( $related->have_posts() ) :
 		?>
-
-	</main><!-- #main -->
-
-<?php
-get_sidebar();
-get_footer();
+		<section class="section blog-related"><div class="container"><div class="blog-section-heading"><div><p class="eyebrow"><?php esc_html_e( 'Keep reading', 'horn-free-theme' ); ?></p><h2><?php esc_html_e( 'More from the movement', 'horn-free-theme' ); ?></h2></div></div><div class="blog-grid">
+		<?php while ( $related->have_posts() ) : $related->the_post(); get_template_part( 'template-parts/content', 'blog-card' ); endwhile; ?>
+		</div></div></section>
+	<?php endif; wp_reset_postdata(); ?>
+<?php endwhile; ?>
+</main>
+<?php get_footer(); ?>
