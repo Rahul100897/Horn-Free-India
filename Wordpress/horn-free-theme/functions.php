@@ -373,8 +373,8 @@ add_action( 'admin_init', 'horn_free_theme_seed_initial_blog' );
 /**
  * Create the Viksit Bharat article once and remove WordPress's sample post.
  */
-function horn_free_theme_seed_viksit_bharat_blog() {
-	if ( get_option( 'hfi_viksit_bharat_blog_seeded' ) || ! current_user_can( 'edit_theme_options' ) ) {
+function horn_free_theme_seed_viksit_bharat_blog( $skip_capability_check = false ) {
+	if ( get_option( 'hfi_viksit_bharat_blog_seeded' ) || ( ! $skip_capability_check && ! current_user_can( 'edit_theme_options' ) ) ) {
 		return;
 	}
 
