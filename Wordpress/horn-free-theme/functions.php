@@ -370,6 +370,75 @@ function horn_free_theme_seed_initial_blog() {
 }
 add_action( 'admin_init', 'horn_free_theme_seed_initial_blog' );
 
+/**
+ * Create the Viksit Bharat article once and remove WordPress's sample post.
+ */
+function horn_free_theme_seed_viksit_bharat_blog() {
+	if ( get_option( 'hfi_viksit_bharat_blog_seeded' ) || ! current_user_can( 'edit_theme_options' ) ) {
+		return;
+	}
+
+	$post = get_page_by_path( 'will-viksit-bharat-mean-the-end-of-om-shanti', OBJECT, 'post' );
+	$post_id = $post ? absint( $post->ID ) : 0;
+	if ( ! $post_id ) {
+		$content = '<p>By 2047, India hopes to stand among the world\'s developed nations. The vision of Viksit Bharat is bold and rightly so: world-class highways, thriving cities, and prosperity reaching every village. As that vision unfolds, millions more cars, trucks, and two-wheelers will join our roads.</p>';
+		$content .= '<p>This raises a question worth pausing on. What will those roads sound like?</p>';
+		$content .= '<p>Today, the answer is often the horn. On our streets, honking has become a habit, a reflex that is rarely a necessity. Trucks carry the words &ldquo;Blow Horn&rdquo; painted proudly on their backs, and we oblige. The result is a constant, rising noise that follows us to work, to school, and into our homes.</p>';
+		$content .= '<p>We tend to measure development in kilometres of road and rupees of GDP. But what about having a little peace and quiet? To be able to hear your own thoughts. For citizens not to suffer hearing damage, or to have high blood pressure from stress.</p>';
+		$content .= '<p>For thousands of years, our scriptures have closed prayers with <em>Om Shanti</em>, a wish for peace within, around, and beyond us. Shanti is not a luxury added once we become wealthy. It is at the heart of who we are.</p>';
+		$content .= '<p>It would be a strange kind of progress if, in becoming Viksit Bharat, we lost the Shanti that is foundational to Bharat. More vehicles need not mean more noise.</p>';
+		$content .= '<p>Horn Free India begins with something simple: removing &ldquo;Blow Horn&rdquo; from our trucks. Small words, repeated daily, have shifted our culture.</p>';
+		$content .= '<p>A developed India will be judged not only by how fast it moves, but by how peacefully it travels. Let us build a nation where Shaanti is also living with Viksit.</p>';
+		$post_id = wp_insert_post(
+			array(
+				'post_type'    => 'post',
+				'post_status'  => 'publish',
+				'post_title'   => __( 'Will “Viksit Bharat” Mean the End of “Om Shanti”?', 'horn-free-theme' ),
+				'post_name'    => 'will-viksit-bharat-mean-the-end-of-om-shanti',
+				'post_excerpt' => __( 'As India moves towards Viksit Bharat, progress should bring quieter and healthier roads—not normalize more unnecessary honking.', 'horn-free-theme' ),
+				'post_content' => wp_slash( $content ),
+			),
+			true
+		);
+	}
+
+	if ( is_wp_error( $post_id ) || ! $post_id ) {
+		return;
+	}
+
+	if ( ! has_post_thumbnail( $post_id ) ) {
+		$source = get_template_directory() . '/assets/images/viksit-bharat-and-horn-free.jpg';
+		if ( file_exists( $source ) ) {
+			require_once ABSPATH . 'wp-admin/includes/file.php';
+			require_once ABSPATH . 'wp-admin/includes/media.php';
+			require_once ABSPATH . 'wp-admin/includes/image.php';
+			$temp_file = wp_tempnam( basename( $source ) );
+			if ( $temp_file && copy( $source, $temp_file ) ) {
+				$attachment_id = media_handle_sideload(
+					array( 'name' => basename( $source ), 'tmp_name' => $temp_file ),
+					$post_id,
+					get_the_title( $post_id )
+				);
+				if ( ! is_wp_error( $attachment_id ) ) {
+					update_post_meta( $attachment_id, '_wp_attachment_image_alt', __( 'A noisy Blow Horn truck scene contrasted with a peaceful Viksit Bharat road.', 'horn-free-theme' ) );
+					set_post_thumbnail( $post_id, $attachment_id );
+				} else {
+					@unlink( $temp_file );
+				}
+			}
+		}
+	}
+
+	if ( has_post_thumbnail( $post_id ) ) {
+		$hello_world = get_page_by_path( 'hello-world', OBJECT, 'post' );
+		if ( $hello_world && 'Hello world!' === get_the_title( $hello_world ) ) {
+			wp_trash_post( $hello_world->ID );
+		}
+		update_option( 'hfi_viksit_bharat_blog_seeded', 1, false );
+	}
+}
+add_action( 'admin_init', 'horn_free_theme_seed_viksit_bharat_blog' );
+
 require get_template_directory() . '/inc/acf-fields.php';
 
 /**
