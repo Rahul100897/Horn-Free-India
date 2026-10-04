@@ -113,7 +113,6 @@
   var form = document.getElementById("join-form");
   var errorEl = document.getElementById("form-error");
   var step2 = document.getElementById("step-2");
-  var step3 = document.getElementById("step-3");
   var emailBtn = document.getElementById("email-btn");
   var shareBtn = document.getElementById("share-btn");
   var emailDialog = document.getElementById("email-dialog");
@@ -172,9 +171,8 @@
 
   function activateEmailStep(name, state, country) {
     emailDraft = buildEmailDraft(name, state, country);
-    if (emailBtn) emailBtn.setAttribute("href", emailUrl("default"));
+    if (emailBtn) emailBtn.disabled = false;
     if (shareBtn) shareBtn.setAttribute("href", buildWhatsapp(name));
-    unlock(step2);
   }
 
   if (form) {
@@ -205,7 +203,7 @@
         if (!response.ok || !result.success) throw new Error(result.data && result.data.message ? result.data.message : hfiSettings.genericError);
         supporterId = Number(result.data.supporterId) || 0;
         confirmationToken = result.data.token || "";
-        if (result.data.confirmed) unlock(step3);
+        if (result.data.confirmed) unlock(step2);
         hideError();
       } catch (err) {
         showError(err.message || hfiSettings.genericError);
@@ -215,10 +213,10 @@
 
       activateEmailStep(name, state, country);
 
-      // Confirm + guide the user to step 2.
+      // Confirm and guide the user to the email action in the same card.
       var head = form.closest(".step").querySelector(".step-copy");
-      if (head) head.textContent = "Thank you, " + name + ". Click Send my email below to add your voice to the public count.";
-      if (step2) step2.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "center" });
+      if (head) head.textContent = "Thank you, " + name + ". Select Send email below to add your voice to the public count.";
+      if (emailBtn) emailBtn.focus();
       if (submit) submit.disabled = false;
     });
   }
@@ -248,7 +246,7 @@
     if (!response.ok || !result.success) throw new Error(result.data && result.data.message ? result.data.message : hfiSettings.genericError);
     counters.forEach(function (el) { el.setAttribute("data-target", String(result.data.count)); el.textContent = Number(result.data.count).toLocaleString("en-IN"); });
     confirmationToken = "";
-    unlock(step3);
+    unlock(step2);
     try { localStorage.setItem(STORAGE_KEY, "1"); } catch (err) {}
   }
 
@@ -275,7 +273,7 @@
 
   if (emailBtn) {
     emailBtn.addEventListener("click", function (e) {
-      if (!emailDraft || emailBtn.getAttribute("href") === "#") return;
+      if (!emailDraft || emailBtn.disabled) return;
       e.preventDefault();
       openEmailDialog(emailBtn);
     });

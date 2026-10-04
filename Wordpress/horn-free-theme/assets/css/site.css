@@ -213,6 +213,7 @@ section[id] { scroll-margin-top: calc(var(--header-h) + 12px); }
 .step-fine { font-size: 0.85rem; color: var(--dark-soft); margin: 0.8rem 0 0; }
 .step-locked { opacity: 0.45; filter: grayscale(0.3); transition: opacity .4s ease, filter .4s ease; }
 .step-unlocked { opacity: 1; filter: none; }
+.step-primary { border-color: rgba(255,255,255,.2); background: rgba(255,255,255,.075); }
 
 /* Form */
 .join-form { display: grid; gap: 1rem; }
@@ -227,6 +228,11 @@ section[id] { scroll-margin-top: calc(var(--header-h) + 12px); }
 }
 .join-form input:focus-visible, .join-form select:focus-visible { outline: 3px solid var(--accent); outline-offset: 1px; }
 .form-error { color: #ffb4a3; font-size: 0.9rem; margin: 0; }
+.join-actions { display: grid; grid-template-columns: 1fr 1fr; gap: .8rem; }
+.join-actions .btn { margin: 0; }
+.btn-email { border: 1.5px solid var(--accent); background: transparent; color: #fff; }
+.btn-email:hover:not(:disabled) { background: var(--accent); }
+.btn-email:disabled { border-color: rgba(255,255,255,.18); color: rgba(255,255,255,.45); background: rgba(255,255,255,.04); box-shadow: none; cursor: not-allowed; }
 
 /* Email provider dialog */
 .email-dialog[hidden] { display: none; }
@@ -381,7 +387,7 @@ body.email-dialog-open { overflow: hidden; }
 @media (min-width: 720px) {
   .stats { grid-template-columns: repeat(3, 1fr); }
   .ask-cards { grid-template-columns: repeat(3, 1fr); }
-  .action-flow { grid-template-columns: minmax(0, 1.5fr) minmax(0, .75fr) minmax(0, .75fr); align-items: start; }
+  .action-flow { grid-template-columns: minmax(0, 1.7fr) minmax(260px, .8fr); align-items: start; max-width: 1100px; }
   .blog-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
@@ -423,6 +429,7 @@ body.email-dialog-open { overflow: hidden; }
 
 @media (max-width: 420px) {
   .field-row { grid-template-columns: 1fr; }
+  .join-actions { grid-template-columns: 1fr; }
   .btn { width: 100%; }
   .hero-actions .btn { width: 100%; }
 }
