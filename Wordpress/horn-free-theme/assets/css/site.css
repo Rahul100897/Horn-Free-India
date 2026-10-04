@@ -38,8 +38,8 @@ html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
 body {
   margin: 0;
   font-family: var(--sans);
-  font-size: 17px;
-  line-height: 1.7;
+  font-size: 16px;
+  line-height: 1.65;
   color: var(--ink);
   background: var(--paper);
   -webkit-font-smoothing: antialiased;
@@ -64,7 +64,7 @@ em { font-style: italic; }
 /* ---------- Layout ---------- */
 .container { width: 100%; max-width: var(--maxw); margin-inline: auto; padding-inline: clamp(1.1rem, 5vw, 2rem); }
 .narrow { max-width: var(--narrow); }
-.section { padding-block: clamp(3.5rem, 9vw, 7rem); }
+.section { padding-block: clamp(2.75rem, 6vw, 5rem); }
 section[id] { scroll-margin-top: calc(var(--header-h) + 12px); }
 
 /* ---------- Buttons ---------- */
@@ -113,10 +113,10 @@ section[id] { scroll-margin-top: calc(var(--header-h) + 12px); }
 .header-counter strong { color: var(--shanti); font-weight: 600; }
 
 /* ---------- Hero ---------- */
-.hero { padding-block: clamp(2.5rem, 7vw, 5.5rem); }
+.hero { padding-block: clamp(2rem, 5vw, 4rem); }
 .hero-inner {
   display: grid; grid-template-columns: 1fr; align-items: center;
-  gap: clamp(2rem, 5vw, 3.5rem);
+  gap: clamp(1.5rem, 4vw, 3rem);
 }
 .hero-content { max-width: 640px; }
 .eyebrow {
@@ -125,7 +125,7 @@ section[id] { scroll-margin-top: calc(var(--header-h) + 12px); }
 }
 .hero-title {
   font-family: var(--serif); font-weight: 600; letter-spacing: -0.02em;
-  font-size: clamp(2.3rem, 6vw, 4rem); line-height: 1.04; margin: 0 0 1.4rem;
+  font-size: clamp(2.2rem, 5.4vw, 3.65rem); line-height: 1.04; margin: 0 0 1.2rem;
 }
 .hero-title .loud {
   font-weight: 700; text-transform: uppercase; letter-spacing: 0.01em;
@@ -134,7 +134,7 @@ section[id] { scroll-margin-top: calc(var(--header-h) + 12px); }
 .hero-title .calm { font-style: italic; color: var(--shanti); }
 .hero-sub {
   font-size: clamp(1.08rem, 2vw, 1.3rem); color: var(--ink-soft);
-  max-width: 560px; margin: 0 0 2rem;
+  max-width: 560px; margin: 0 0 1.6rem;
 }
 .hero-actions { display: flex; gap: 0.9rem; flex-wrap: wrap; }
 .trust-microline { margin: 1.6rem 0 0; font-size: 0.92rem; color: var(--ink-soft); }
@@ -152,7 +152,7 @@ section[id] { scroll-margin-top: calc(var(--header-h) + 12px); }
 /* ---------- Section typography ---------- */
 .section-title {
   font-family: var(--serif); font-weight: 600; letter-spacing: -0.02em;
-  font-size: clamp(1.7rem, 4.2vw, 2.7rem); line-height: 1.12; margin: 0 0 1.2rem;
+  font-size: clamp(1.65rem, 3.8vw, 2.45rem); line-height: 1.12; margin: 0 0 1rem;
 }
 .section-title .calm { font-style: italic; color: var(--shanti); }
 .lede { font-size: clamp(1.08rem, 2vw, 1.25rem); color: var(--ink-soft); margin: 0 0 1rem; }
@@ -165,10 +165,10 @@ section[id] { scroll-margin-top: calc(var(--header-h) + 12px); }
 .section-dark .section-title { color: #fff; }
 
 /* ---------- Stats ---------- */
-.stats { display: grid; gap: 1.3rem; margin-top: 2.5rem; grid-template-columns: 1fr; }
+.stats { display: grid; gap: 1.15rem; margin-top: 2rem; grid-template-columns: 1fr; }
 .stat {
   background: var(--paper-2); border: 1px solid var(--line); border-radius: var(--radius);
-  padding: 1.8rem; border-top: 4px solid var(--shanti);
+  padding: 1.5rem; border-top: 4px solid var(--shanti);
 }
 .stat-num { display: block; font-family: var(--serif); font-weight: 700; font-size: 2.1rem; color: var(--shanti); line-height: 1; margin-bottom: 0.7rem; }
 .stat-copy { margin: 0; color: var(--ink-soft); font-size: 1rem; }
@@ -181,10 +181,10 @@ section[id] { scroll-margin-top: calc(var(--header-h) + 12px); }
 }
 
 /* ---------- Ask cards ---------- */
-.ask-cards { display: grid; gap: 1rem; grid-template-columns: 1fr; margin: 2.4rem auto; max-width: 960px; }
+.ask-cards { display: grid; gap: 1rem; grid-template-columns: 1fr; margin: 2rem auto; max-width: 960px; }
 .ask-card {
   background: var(--paper-2); border: 1.5px solid var(--line); border-radius: var(--radius);
-  padding: 2rem 1.5rem; text-align: center;
+  padding: 1.6rem 1.5rem; text-align: left;
 }
 .ask-card span { font-family: var(--serif); font-size: 1.7rem; font-weight: 600; color: var(--ink); display: block; }
 .ask-card small { display: block; margin-top: 0.4rem; color: var(--ink-soft); font-style: italic; }
@@ -194,13 +194,13 @@ section[id] { scroll-margin-top: calc(var(--header-h) + 12px); }
 
 .punchline { font-size: 1.15rem; color: var(--ink); margin-top: 1.2rem; }
 .aside { color: var(--ink-soft); font-style: italic; }
-.proof-block { text-align: center; }
+.proof-block { text-align: left; }
 
 /* ---------- Take Action ---------- */
-.action-flow { display: grid; gap: 1.3rem; grid-template-columns: 1fr; margin-top: 2.6rem; }
+.action-flow { display: grid; gap: 1.3rem; grid-template-columns: 1fr; margin-top: 2rem; }
 .step {
   background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.12);
-  border-radius: var(--radius); padding: 1.8rem;
+  border-radius: var(--radius); padding: 1.5rem;
 }
 .step-head { display: flex; align-items: center; gap: 0.8rem; margin-bottom: 0.8rem; }
 .step-num {
@@ -248,11 +248,11 @@ section[id] { scroll-margin-top: calc(var(--header-h) + 12px); }
 body.email-dialog-open { overflow: hidden; }
 
 /* ---------- Momentum ---------- */
-.momentum { text-align: center; }
-.big-counter { font-family: var(--serif); font-weight: 700; font-size: clamp(3.5rem, 14vw, 7rem); color: var(--shanti); line-height: 1; margin: 1rem 0 0.3rem; }
+.momentum { text-align: left; }
+.big-counter { font-family: var(--serif); font-weight: 700; font-size: clamp(3.25rem, 11vw, 6rem); color: var(--shanti); line-height: 1; margin: 1rem 0 0.3rem; }
 .counter-label { font-size: 1.2rem; color: var(--ink); margin: 0; }
 .map-line { color: var(--ink-soft); margin: 0.6rem 0 0; }
-.voices { margin: 2.6rem auto 0; max-width: 600px; }
+.voices { margin: 2rem 0 0; max-width: 600px; }
 .voices blockquote { font-family: var(--serif); font-style: italic; font-size: 1.3rem; line-height: 1.4; margin: 0; color: var(--ink); }
 .voices figcaption { margin-top: 0.8rem; color: var(--ink-soft); font-weight: 500; }
 
@@ -266,7 +266,7 @@ body.email-dialog-open { overflow: hidden; }
 .promises a { color: var(--shanti); }
 
 /* ---------- Closing ---------- */
-.closing-cta { text-align: center; }
+.closing-cta { text-align: left; }
 .closing-cta .btn { margin-top: 1.6rem; }
 
 /* ---------- Journal / blog ---------- */

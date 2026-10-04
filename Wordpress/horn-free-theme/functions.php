@@ -271,6 +271,24 @@ function horn_free_theme_blog_url() {
 	return $posts_page_id ? get_permalink( $posts_page_id ) : home_url( '/blog/' );
 }
 
+/** Remove campaign anchors that are intentionally excluded from the primary menu. */
+function horn_free_theme_filter_primary_menu_items( $items, $args ) {
+	if ( ! isset( $args->theme_location ) || 'menu-1' !== $args->theme_location ) {
+		return $items;
+	}
+
+	return array_values(
+		array_filter(
+			$items,
+			static function ( $item ) {
+				$fragment = wp_parse_url( $item->url, PHP_URL_FRAGMENT );
+				return ! in_array( $fragment, array( 'action', 'spread' ), true );
+			}
+		)
+	);
+}
+add_filter( 'wp_nav_menu_objects', 'horn_free_theme_filter_primary_menu_items', 10, 2 );
+
 /** Ensure Blog remains available even when a custom primary menu is active. */
 function horn_free_theme_add_blog_menu_item( $items, $args ) {
 	if ( isset( $args->theme_location ) && 'menu-1' === $args->theme_location && false === strpos( $items, horn_free_theme_blog_url() ) ) {
