@@ -64,6 +64,9 @@ em { font-style: italic; }
 /* ---------- Layout ---------- */
 .container { width: 100%; max-width: var(--maxw); margin-inline: auto; padding-inline: clamp(1.1rem, 5vw, 2rem); }
 .narrow { max-width: var(--narrow); }
+.home .container.narrow { max-width: var(--maxw); }
+.home .container.narrow > * { max-width: var(--narrow); }
+.home .container.narrow > .voices { max-width: 600px; }
 .section { padding-block: clamp(2.75rem, 6vw, 5rem); }
 section[id] { scroll-margin-top: calc(var(--header-h) + 12px); }
 
@@ -181,10 +184,10 @@ section[id] { scroll-margin-top: calc(var(--header-h) + 12px); }
 }
 
 /* ---------- Ask cards ---------- */
-.ask-cards { display: grid; gap: 1rem; grid-template-columns: 1fr; margin: 2rem auto; max-width: 960px; }
+.ask-cards { display: grid; gap: 1rem; grid-template-columns: 1fr; margin: 2rem auto; max-width: var(--maxw); }
 .ask-card {
   background: var(--paper-2); border: 1.5px solid var(--line); border-radius: var(--radius);
-  padding: 1.6rem 1.5rem; text-align: left;
+  padding: 1.6rem 1.5rem; text-align: center;
 }
 .ask-card span { font-family: var(--serif); font-size: 1.7rem; font-weight: 600; color: var(--ink); display: block; }
 .ask-card small { display: block; margin-top: 0.4rem; color: var(--ink-soft); font-style: italic; }
@@ -194,7 +197,7 @@ section[id] { scroll-margin-top: calc(var(--header-h) + 12px); }
 
 .punchline { font-size: 1.15rem; color: var(--ink); margin-top: 1.2rem; }
 .aside { color: var(--ink-soft); font-style: italic; }
-.proof-block { text-align: left; }
+.proof-block { text-align: center; }
 
 /* ---------- Take Action ---------- */
 .action-flow { display: grid; gap: 1.3rem; grid-template-columns: 1fr; margin-top: 2rem; }
@@ -248,11 +251,11 @@ section[id] { scroll-margin-top: calc(var(--header-h) + 12px); }
 body.email-dialog-open { overflow: hidden; }
 
 /* ---------- Momentum ---------- */
-.momentum { text-align: left; }
+.momentum { text-align: center; }
 .big-counter { font-family: var(--serif); font-weight: 700; font-size: clamp(3.25rem, 11vw, 6rem); color: var(--shanti); line-height: 1; margin: 1rem 0 0.3rem; }
 .counter-label { font-size: 1.2rem; color: var(--ink); margin: 0; }
 .map-line { color: var(--ink-soft); margin: 0.6rem 0 0; }
-.voices { margin: 2rem 0 0; max-width: 600px; }
+.voices { margin: 2rem auto 0; max-width: 600px; }
 .voices blockquote { font-family: var(--serif); font-style: italic; font-size: 1.3rem; line-height: 1.4; margin: 0; color: var(--ink); }
 .voices figcaption { margin-top: 0.8rem; color: var(--ink-soft); font-weight: 500; }
 
@@ -266,7 +269,7 @@ body.email-dialog-open { overflow: hidden; }
 .promises a { color: var(--shanti); }
 
 /* ---------- Closing ---------- */
-.closing-cta { text-align: left; }
+.closing-cta { text-align: center; }
 .closing-cta .btn { margin-top: 1.6rem; }
 
 /* ---------- Journal / blog ---------- */
@@ -387,7 +390,7 @@ body.email-dialog-open { overflow: hidden; }
 @media (min-width: 720px) {
   .stats { grid-template-columns: repeat(3, 1fr); }
   .ask-cards { grid-template-columns: repeat(3, 1fr); }
-  .action-flow { grid-template-columns: minmax(0, 1.7fr) minmax(260px, .8fr); align-items: start; max-width: 1100px; }
+  .action-flow { grid-template-columns: minmax(0, 1.7fr) minmax(260px, .8fr); align-items: start; max-width: var(--maxw); }
   .blog-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
