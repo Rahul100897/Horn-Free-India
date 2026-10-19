@@ -178,7 +178,7 @@
   if (form) {
     form.addEventListener("submit", async function (e) {
       e.preventDefault();
-      var name = form.name.value.trim();
+      var name = form.elements.namedItem("name").value.trim();
       var state = form.state.value.trim();
       var countryCode = form.country.value;
       var country = form.country.options[form.country.selectedIndex].text;
@@ -195,7 +195,11 @@
       hideError();
 
       var submit = form.querySelector('[type="submit"]');
-      if (submit) submit.disabled = true;
+      if (submit && submit.disabled) return;
+      if (submit) {
+        submit.disabled = true;
+        submit.textContent = "Preparing your email…";
+      }
       try {
         var payload = new URLSearchParams({ action: "hfi_join_movement", nonce: hfiSettings.nonce, name: name, state: state, country: countryCode, email: email });
         var response = await fetch(hfiSettings.ajaxUrl, { method: "POST", headers: { "Content-Type": "application/x-www-form-urlencoded" }, body: payload.toString() });
@@ -207,17 +211,23 @@
         hideError();
       } catch (err) {
         showError(err.message || hfiSettings.genericError);
-        if (submit) submit.disabled = false;
+        if (submit) {
+          submit.disabled = false;
+          submit.textContent = "Join & prepare email";
+        }
         return;
       }
 
       activateEmailStep(name, state, country);
 
-      // Confirm and guide the user to the email action in the same card.
+      // Continue directly to the email options after saving the supporter.
       var head = form.closest(".step").querySelector(".step-copy");
-      if (head) head.textContent = "Thank you, " + name + ". Select Send email below to add your voice to the public count.";
-      if (emailBtn) emailBtn.focus();
-      if (submit) submit.disabled = false;
+      if (head) head.textContent = "Thank you, " + name + ". Choose an email option to prepare your message, then send it from your email account.";
+      if (submit) {
+        submit.disabled = false;
+        submit.textContent = "Join & prepare email";
+      }
+      openEmailDialog(submit);
     });
   }
 
@@ -269,14 +279,6 @@
     var copied = document.execCommand("copy");
     area.remove();
     if (!copied) throw new Error("Unable to copy automatically. Please try again.");
-  }
-
-  if (emailBtn) {
-    emailBtn.addEventListener("click", function (e) {
-      if (!emailDraft || emailBtn.disabled) return;
-      e.preventDefault();
-      openEmailDialog(emailBtn);
-    });
   }
 
   if (emailDialog) {

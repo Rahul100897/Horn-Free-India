@@ -234,7 +234,7 @@ section[id] { scroll-margin-top: calc(var(--header-h) + 12px); }
 }
 .join-form input:focus-visible, .join-form select:focus-visible { outline: 3px solid var(--accent); outline-offset: 1px; }
 .form-error { color: #ffb4a3; font-size: 0.9rem; margin: 0; }
-.join-actions { display: grid; grid-template-columns: 1fr 1fr; gap: .8rem; }
+.join-actions { display: grid; grid-template-columns: 1fr; gap: .8rem; }
 .join-actions .btn { margin: 0; }
 .btn-email { border: 1.5px solid var(--accent); background: transparent; color: #fff; }
 .btn-email:hover:not(:disabled) { background: var(--accent); }
