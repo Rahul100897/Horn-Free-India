@@ -68,7 +68,8 @@ em { font-style: italic; }
 .home .container.narrow > * { max-width: var(--narrow); }
 .home .container.narrow > .voices { max-width: 600px; }
 .home #proof .container.narrow,
-.home #momentum .container.narrow { max-width: var(--narrow); }
+.home #momentum .container.narrow,
+.home #spread .container.narrow { max-width: var(--narrow); }
 .section { padding-block: clamp(2.75rem, 6vw, 5rem); }
 section[id] { scroll-margin-top: calc(var(--header-h) + 12px); }
 
